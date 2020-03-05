@@ -4,9 +4,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Searchfight.IServices;
+using Searchfight.IServices.SearchEngineApis;
 using Searchfight.IServices.SearchEnginesApiClients;
 using Searchfight.IServices.SearchEnginesMappers;
 using Searchfight.Services;
+using Searchfight.Services.SearchEngineApis;
 using Searchfight.Services.SearchEnginesApiClients;
 using Searchfight.Services.SearchEnginesMappers;
 
@@ -28,7 +30,8 @@ namespace Searchfight
 
             services.AddTransient<ISearchEngineService, SearchEngineService>();
             services.AddTransient<ISearchEngineApiService, SearchEngineApiService>();
-            services.AddTransient<ISearchEngineApiResultService, SearchEngineApiResultService>();
+            services.AddTransient<IBingApiResultService, BingApiResultService>();
+            services.AddTransient<IGoogleApiResultService, GoogleApiResultService>();
 
             services.AddSingleton<IBingSearchEngineClient, BingSearchEngineClient>();
             services.AddSingleton<IGoogleSearchEngineClient, GoogleSearchEngineClient>();

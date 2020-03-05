@@ -1,4 +1,5 @@
 ﻿using Searchfight.IServices;
+using Searchfight.IServices.SearchEngineApis;
 using Searchfight.Models;
 using System;
 using System.Collections.Generic;
@@ -8,11 +9,13 @@ namespace Searchfight.Services
 {
     public class SearchEngineService : ISearchEngineService
     {
-        private readonly ISearchEngineApiResultService _searchEngineResultService;
+        private readonly IBingApiResultService _bingApiResultService;
+        private readonly IGoogleApiResultService _googleApiResultService;
 
-        public SearchEngineService(ISearchEngineApiResultService searchEngineResultService)
+        public SearchEngineService(IBingApiResultService bingApiResultService, IGoogleApiResultService googleApiResultService)
         {
-            _searchEngineResultService = searchEngineResultService;
+            _bingApiResultService = bingApiResultService;
+            _googleApiResultService = googleApiResultService;
         }
 
         public SearchResult Search(IList<string> values)
@@ -45,7 +48,10 @@ namespace Searchfight.Services
                 searchEngineValueResult = new SearchEngineResult
                 {
                     SearchValue = values[i],
-                    SearchMatchResults = _searchEngineResultService.GetSearchEngineMatch(values[i])
+                    SearchMatchResults = new List<SearchEngineMatch> {
+                        _bingApiResultService.GetSearchEngineMatch(values[i]),
+                        _googleApiResultService.GetSearchEngineMatch(values[i])
+                    }
                 };
 
                 searchEngineValueResults.Add(searchEngineValueResult);

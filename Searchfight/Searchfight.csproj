@@ -5,8 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Searchflight.IServices\Searchfight.IServices.csproj" />
-    <ProjectReference Include="..\Searchflight.Services\Searchfight.Services.csproj" />
+    <ProjectReference Include="..\Searchfight.IServices\Searchfight.IServices.csproj" />
+    <ProjectReference Include="..\Searchfight.Services\Searchfight.Services.csproj" />
   </ItemGroup>
 
 

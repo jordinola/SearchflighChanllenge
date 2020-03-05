@@ -16,13 +16,13 @@ namespace Searchfight.Controllers
         }
 
         [HttpGet]
-        public ActionResult Get([FromQuery]string search)
+        public ActionResult Get([FromQuery]string query)
         {
-            if (string.IsNullOrEmpty(search))
+            if (string.IsNullOrEmpty(query))
                 return Ok();
 
 
-            var searchValue = search.Split(',').ToList();
+            var searchValue = query.Split(',').ToList();
 
             return Ok(_searchEngineService.Search(searchValue));
         }
