@@ -10,3 +10,9 @@
 /Searchflight.Services/bin/Debug/netcoreapp3.1
 /Searchflight.Services/obj
 /.vs
+/Searchfight.IServices/obj
+/Searchfight.IServices/bin/Debug/netcoreapp3.1
+/Searchfight.Models/bin/Debug/netcoreapp3.1
+/Searchfight.Models/obj
+/Searchfight.Services/obj
+/Searchfight.Services/bin/Debug/netcoreapp3.1
