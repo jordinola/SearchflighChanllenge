@@ -1,9 +1,7 @@
 ﻿using FluentAssertions;
 using NUnit.Framework;
 using Searchfight.Services.Tests.ServiceMockBuilders;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Searchfight.Services.Tests
 {

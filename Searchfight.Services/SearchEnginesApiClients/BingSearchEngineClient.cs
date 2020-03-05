@@ -2,7 +2,6 @@
 using RestSharp;
 using Searchfight.IServices.SearchEnginesApiClients;
 using Searchfight.Models.EnginesApiResponses;
-using System;
 
 namespace Searchfight.Services.SearchEnginesApiClients
 {

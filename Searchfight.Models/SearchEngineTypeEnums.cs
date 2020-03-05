@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Searchfight.Models
+﻿namespace Searchfight.Models
 {
     public enum SearchEngineTypeEnums
     {
