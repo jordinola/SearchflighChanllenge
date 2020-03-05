@@ -3,3 +3,10 @@
 ################################################################################
 
 /.vs/SearchflighChanllenge/v16
+/Searchflight.IServices/bin/Debug/netcoreapp3.1
+/Searchflight.IServices/obj
+/Searchflight.Models/bin/Debug/netcoreapp3.1
+/Searchflight.Models/obj
+/Searchflight.Services/bin/Debug/netcoreapp3.1
+/Searchflight.Services/obj
+/.vs
