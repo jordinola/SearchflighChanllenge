@@ -1,9 +1,9 @@
-﻿using Searchflight.Models.EnginesApiResponses;
+﻿using Searchfight.Models.EnginesApiResponses;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Searchflight.IServices
+namespace Searchfight.IServices
 {
     public interface ISearchEngineApiService
     {

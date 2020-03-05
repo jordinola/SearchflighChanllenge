@@ -1,4 +1,4 @@
-﻿namespace Searchflight.Models.EnginesApiResponses
+﻿namespace Searchfight.Models.EnginesApiResponses
 {
     public class BingApiResponse
     {

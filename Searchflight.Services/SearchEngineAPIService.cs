@@ -1,8 +1,8 @@
-﻿using Searchflight.IServices;
-using Searchflight.IServices.SearchEnginesApiClients;
-using Searchflight.Models.EnginesApiResponses;
+﻿using Searchfight.IServices;
+using Searchfight.IServices.SearchEnginesApiClients;
+using Searchfight.Models.EnginesApiResponses;
 
-namespace Searchflight.Services
+namespace Searchfight.Services
 {
     public class SearchEngineApiService : ISearchEngineApiService
     {

@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Searchflight.IServices;
+using Searchfight.IServices;
 using System.Linq;
 
-namespace Searchflight.Controllers
+namespace Searchfight.Controllers
 {
     [ApiController]
     [Route("[controller]")]
@@ -16,13 +16,13 @@ namespace Searchflight.Controllers
         }
 
         [HttpGet]
-        public ActionResult Get([FromQuery]string programmingLanguages)
+        public ActionResult Get([FromQuery]string search)
         {
-            if (string.IsNullOrEmpty(programmingLanguages))
+            if (string.IsNullOrEmpty(search))
                 return Ok();
 
 
-            var searchValue = programmingLanguages.Split(',').ToList();
+            var searchValue = search.Split(',').ToList();
 
             return Ok(_searchEngineService.Search(searchValue));
         }

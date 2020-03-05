@@ -1,7 +1,7 @@
-﻿using Searchflight.Models;
+﻿using Searchfight.Models;
 using System.Collections.Generic;
 
-namespace Searchflight.IServices
+namespace Searchfight.IServices
 {
     public interface ISearchEngineApiResultService
     {

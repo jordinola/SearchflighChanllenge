@@ -1,6 +1,6 @@
-﻿using Searchflight.Models.EnginesApiResponses;
+﻿using Searchfight.Models.EnginesApiResponses;
 
-namespace Searchflight.IServices.SearchEnginesApiClients
+namespace Searchfight.IServices.SearchEnginesApiClients
 {
     public interface IBingSearchEngineClient
     {

@@ -1,9 +1,9 @@
 ﻿using Microsoft.Extensions.Configuration;
 using RestSharp;
-using Searchflight.IServices.SearchEnginesApiClients;
-using Searchflight.Models.EnginesApiResponses;
+using Searchfight.IServices.SearchEnginesApiClients;
+using Searchfight.Models.EnginesApiResponses;
 
-namespace Searchflight.Services.SearchEnginesApiClients
+namespace Searchfight.Services.SearchEnginesApiClients
 {
     public class GoogleSearchEngineClient : RestClient, IGoogleSearchEngineClient
     {

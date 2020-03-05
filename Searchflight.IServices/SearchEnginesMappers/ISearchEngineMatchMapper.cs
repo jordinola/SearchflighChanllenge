@@ -1,7 +1,7 @@
-﻿using Searchflight.Models;
-using Searchflight.Models.EnginesApiResponses;
+﻿using Searchfight.Models;
+using Searchfight.Models.EnginesApiResponses;
 
-namespace Searchflight.IServices.SearchEnginesMappers
+namespace Searchfight.IServices.SearchEnginesMappers
 {
     public interface ISearchEngineMatchMapper
     {

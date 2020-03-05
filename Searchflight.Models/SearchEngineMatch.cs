@@ -1,4 +1,4 @@
-﻿namespace Searchflight.Models
+﻿namespace Searchfight.Models
 {
     public class SearchEngineMatch
     {

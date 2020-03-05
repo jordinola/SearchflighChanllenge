@@ -1,11 +1,11 @@
-﻿using Searchflight.IServices;
-using Searchflight.IServices.SearchEnginesMappers;
-using Searchflight.Models;
+﻿using Searchfight.IServices;
+using Searchfight.IServices.SearchEnginesMappers;
+using Searchfight.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Searchflight.Services
+namespace Searchfight.Services
 {
     public class SearchEngineApiResultService : ISearchEngineApiResultService
     {

@@ -3,14 +3,14 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Searchflight.IServices;
-using Searchflight.IServices.SearchEnginesApiClients;
-using Searchflight.IServices.SearchEnginesMappers;
-using Searchflight.Services;
-using Searchflight.Services.SearchEnginesApiClients;
-using Searchflight.Services.SearchEnginesMappers;
+using Searchfight.IServices;
+using Searchfight.IServices.SearchEnginesApiClients;
+using Searchfight.IServices.SearchEnginesMappers;
+using Searchfight.Services;
+using Searchfight.Services.SearchEnginesApiClients;
+using Searchfight.Services.SearchEnginesMappers;
 
-namespace Searchflight
+namespace Searchfight
 {
     public class Startup
     {

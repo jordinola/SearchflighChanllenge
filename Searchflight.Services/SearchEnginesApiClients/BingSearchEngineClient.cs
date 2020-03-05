@@ -1,10 +1,10 @@
 ﻿using Microsoft.Extensions.Configuration;
 using RestSharp;
-using Searchflight.IServices.SearchEnginesApiClients;
-using Searchflight.Models.EnginesApiResponses;
+using Searchfight.IServices.SearchEnginesApiClients;
+using Searchfight.Models.EnginesApiResponses;
 using System;
 
-namespace Searchflight.Services.SearchEnginesApiClients
+namespace Searchfight.Services.SearchEnginesApiClients
 {
     public class BingSearchEngineClient : RestClient, IBingSearchEngineClient
     {

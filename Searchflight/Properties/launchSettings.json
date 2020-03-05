@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "Searchflight": {
+    "Searchfight": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "search",

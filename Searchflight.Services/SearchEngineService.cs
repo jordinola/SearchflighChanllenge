@@ -1,10 +1,10 @@
-﻿using Searchflight.IServices;
-using Searchflight.Models;
+﻿using Searchfight.IServices;
+using Searchfight.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Searchflight.Services
+namespace Searchfight.Services
 {
     public class SearchEngineService : ISearchEngineService
     {

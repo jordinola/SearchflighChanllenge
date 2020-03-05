@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Searchflight.Models
+namespace Searchfight.Models
 {
     public enum SearchEngineTypeEnums
     {

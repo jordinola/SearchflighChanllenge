@@ -1,11 +1,11 @@
-﻿using Searchflight.IServices.SearchEnginesMappers;
-using Searchflight.Models;
-using Searchflight.Models.EnginesApiResponses;
+﻿using Searchfight.IServices.SearchEnginesMappers;
+using Searchfight.Models;
+using Searchfight.Models.EnginesApiResponses;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Searchflight.Services.SearchEnginesMappers
+namespace Searchfight.Services.SearchEnginesMappers
 {
     public class SearchEngineMatchMapper : ISearchEngineMatchMapper
     {

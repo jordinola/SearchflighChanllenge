@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Searchflight.Models
+namespace Searchfight.Models
 {
     public class SearchResult
     {
