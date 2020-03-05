@@ -1,9 +1,6 @@
 ﻿using Searchfight.IServices.SearchEnginesMappers;
 using Searchfight.Models;
 using Searchfight.Models.EnginesApiResponses;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Searchfight.Services.SearchEnginesMappers
 {

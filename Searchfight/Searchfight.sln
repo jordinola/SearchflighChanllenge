@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Searchfight.Models", "..\Se
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Searchfight.Services", "..\Searchfight.Services\Searchfight.Services.csproj", "{0294B686-198D-4DC5-8F0B-A2C04396497C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Searchfight.Services.Tests", "..\Searchfight.Services.Tests\Searchfight.Services.Tests.csproj", "{2EBED146-9A6B-4E2B-8333-3DD82CDAFD02}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{0294B686-198D-4DC5-8F0B-A2C04396497C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0294B686-198D-4DC5-8F0B-A2C04396497C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0294B686-198D-4DC5-8F0B-A2C04396497C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2EBED146-9A6B-4E2B-8333-3DD82CDAFD02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EBED146-9A6B-4E2B-8333-3DD82CDAFD02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EBED146-9A6B-4E2B-8333-3DD82CDAFD02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EBED146-9A6B-4E2B-8333-3DD82CDAFD02}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

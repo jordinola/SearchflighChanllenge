@@ -16,3 +16,5 @@
 /Searchfight.Models/obj
 /Searchfight.Services/obj
 /Searchfight.Services/bin/Debug/netcoreapp3.1
+/Searchfight.Services.Tests/obj
+/Searchfight.Services.Tests/bin/Debug/netcoreapp3.1
