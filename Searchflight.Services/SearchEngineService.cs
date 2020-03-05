@@ -30,6 +30,8 @@ namespace Searchflight.Services
                 searchResult.WinnerByEngine.Add(engineName, GetWinnerBySearchEngine(engineName, searchResult));
             }
 
+            searchResult.TotalWinner = GetTotalWinner(searchResult);
+
             return searchResult;
         }
 
@@ -60,12 +62,10 @@ namespace Searchflight.Services
             {
                 for (int j = 0; j < searchResult.SearchEngineValueResults[i].SearchMatchResults.Count; j++)
                 {
-                    if (searchResult.SearchEngineValueResults[i].SearchMatchResults[j].SearchEngineName == searchEngine)
+                    if (searchResult.SearchEngineValueResults[i].SearchMatchResults[j].SearchEngineName == searchEngine 
+                        && searchResult.SearchEngineValueResults[i].SearchMatchResults[j].NumberMatches > GetMatchBySearchEngine(searchEngine, maxResult.SearchMatchResults).NumberMatches)
                     {
-                        if (searchResult.SearchEngineValueResults[i].SearchMatchResults[j].NumberMatches > GetMatchBySearchEngine(searchEngine, maxResult.SearchMatchResults).NumberMatches)
-                        {
                             maxResult = searchResult.SearchEngineValueResults[i];
-                        }
                     }
                 }
             }
@@ -76,6 +76,13 @@ namespace Searchflight.Services
         private SearchEngineMatch GetMatchBySearchEngine(string searchEngine, IList<SearchEngineMatch> searchEngineMatchResults)
         {
             return searchEngineMatchResults.Where(x => x.SearchEngineName == searchEngine).ToList()[0];
+        }
+
+        private string GetTotalWinner(SearchResult searchResult)
+        {
+            var totalWinner = searchResult.SearchEngineValueResults.Aggregate((i1, i2) => i1.TotalMatches > i2.TotalMatches ? i1 : i2);
+
+            return totalWinner.SearchValue;
         }
     }
 }
