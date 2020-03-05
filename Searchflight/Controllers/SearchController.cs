@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Microsoft.AspNetCore.Mvc;
+using Searchflight.IServices;
 using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 
 namespace Searchflight.Controllers
 {
@@ -11,14 +8,23 @@ namespace Searchflight.Controllers
     [Route("[controller]")]
     public class SearchController : ControllerBase
     {
-        public SearchController()
+        private readonly ISearchEngineService _searchEngineService;
+
+        public SearchController(ISearchEngineService searchEngineService)
         {
+            _searchEngineService = searchEngineService;
         }
 
         [HttpGet]
-        public ActionResult Get()
+        public ActionResult Get([FromQuery]string programmingLanguages)
         {
-            return Ok();
+            if (string.IsNullOrEmpty(programmingLanguages))
+                return Ok();
+
+
+            var searchValue = programmingLanguages.Split(',').ToList();
+
+            return Ok(_searchEngineService.Search(searchValue));
         }
     }
 }

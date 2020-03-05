@@ -4,12 +4,12 @@ using Searchflight.Models.EnginesApiResponses;
 
 namespace Searchflight.Services
 {
-    public class SearchEngineAPIService : ISearchEngineApiService
+    public class SearchEngineApiService : ISearchEngineApiService
     {
         private readonly IBingSearchEngineClient _bingSearchEngineClient;
         private readonly IGoogleSearchEngineClient _googleSearchEngineClient;
 
-        public SearchEngineAPIService(
+        public SearchEngineApiService(
             IBingSearchEngineClient bingSearchEngineClient,
             IGoogleSearchEngineClient googleSearchEngineClient)
         {

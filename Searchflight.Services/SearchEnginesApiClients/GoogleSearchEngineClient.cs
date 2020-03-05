@@ -1,11 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using RestSharp;
-using RestSharp.Deserializers;
 using Searchflight.IServices.SearchEnginesApiClients;
 using Searchflight.Models.EnginesApiResponses;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Searchflight.Services.SearchEnginesApiClients
 {
@@ -13,16 +9,16 @@ namespace Searchflight.Services.SearchEnginesApiClients
     {
         private readonly IConfiguration _configuration;
 
-        public GoogleSearchEngineClient(IDeserializer serializer, IConfiguration configuration)
+        public GoogleSearchEngineClient(IConfiguration configuration)
         {
             _configuration = configuration;
         }
 
         public GoogleApiResponse Search(string searchValue)
         {
-            var request = new RestRequest($"/customsearch/v1", Method.GET);
-            request.AddQueryParameter("key", _configuration["googleKey"]);
-            request.AddQueryParameter("cx", _configuration["googleCx"]);
+            var request = new RestRequest($"https://www.googleapis.com/customsearch/v1", Method.GET);
+            request.AddQueryParameter("key", _configuration["ApiKeys:GoogleApiKey"]);
+            request.AddQueryParameter("cx", _configuration["ApiKeys:GoogleCx"]);
             request.AddQueryParameter("q", searchValue);
 
             var response = Execute<GoogleApiResponse>(request);

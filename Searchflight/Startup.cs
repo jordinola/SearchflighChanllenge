@@ -1,15 +1,14 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using Searchflight.IServices;
+using Searchflight.IServices.SearchEnginesApiClients;
+using Searchflight.IServices.SearchEnginesMappers;
+using Searchflight.Services;
+using Searchflight.Services.SearchEnginesApiClients;
+using Searchflight.Services.SearchEnginesMappers;
 
 namespace Searchflight
 {
@@ -25,7 +24,18 @@ namespace Searchflight
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddMvc();
+
+            services.AddTransient<ISearchEngineService, SearchEngineService>();
+            services.AddTransient<ISearchEngineApiService, SearchEngineApiService>();
+            services.AddTransient<ISearchEngineApiResultService, SearchEngineApiResultService>();
+
+            services.AddSingleton<IBingSearchEngineClient, BingSearchEngineClient>();
+            services.AddSingleton<IGoogleSearchEngineClient, GoogleSearchEngineClient>();
+
+            services.AddSingleton<ISearchEngineMatchMapper, SearchEngineMatchMapper>();
+;
+            services.AddSingleton<IConfiguration>(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

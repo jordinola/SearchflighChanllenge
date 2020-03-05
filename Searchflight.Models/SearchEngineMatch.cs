@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Searchflight.Models
+﻿namespace Searchflight.Models
 {
     public class SearchEngineMatch
     {
+        public int SearchEngineId { get; set; }
         public string SearchEngineName { get; set; }
         public long? NumberMatches { get; set; }
     }

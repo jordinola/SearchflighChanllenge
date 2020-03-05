@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Searchflight.IServices
 {
-    public interface ISearchEngine
+    public interface ISearchEngineService
     {
         SearchResult Search(IList<string> values);
     }

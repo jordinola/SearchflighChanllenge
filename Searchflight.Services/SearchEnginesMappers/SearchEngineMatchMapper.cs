@@ -13,6 +13,7 @@ namespace Searchflight.Services.SearchEnginesMappers
         {
             return new SearchEngineMatch
             {
+                SearchEngineId = (int)SearchEngineTypeEnums.Bing,
                 SearchEngineName = SearchEngineTypeEnums.Bing.ToString(),
                 NumberMatches = entity?.WebPages?.TotalEstimatedMatches
             };
@@ -22,6 +23,7 @@ namespace Searchflight.Services.SearchEnginesMappers
         {
             return new SearchEngineMatch
             {
+                SearchEngineId = (int)SearchEngineTypeEnums.Google,
                 SearchEngineName = SearchEngineTypeEnums.Google.ToString(),
                 NumberMatches = entity?.SearchInformation?.TotalResults
             };

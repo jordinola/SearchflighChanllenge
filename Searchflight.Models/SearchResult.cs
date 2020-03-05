@@ -6,12 +6,12 @@ namespace Searchflight.Models
     {
         public SearchResult()
         {
+            WinnerByEngine = new Dictionary<string, string>();
             SearchEngineValueResults = new List<SearchEngineResult>();
         }
 
-        public string GoogleWinner { get; set; }
-        public string BingWinner { get; set; }
         public string TotalWinner { get; set; }
+        public Dictionary<string, string> WinnerByEngine { get; set; }
         public IList<SearchEngineResult> SearchEngineValueResults { get; set; }
     }
 }
