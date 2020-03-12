@@ -1,8 +1,10 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 using Searchfight.IServices;
 using Searchfight.IServices.SearchEngineApis;
 using Searchfight.IServices.SearchEnginesApiClients;
@@ -39,6 +41,13 @@ namespace Searchfight
             services.AddSingleton<ISearchEngineMatchMapper, SearchEngineMatchMapper>();
 ;
             services.AddSingleton<IConfiguration>(Configuration);
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc(name: "v1", new OpenApiInfo { Title = "Searchfight", Version = "v1" });
+            });
+
+            services.AddAutoMapper(typeof(Startup));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,6 +59,13 @@ namespace Searchfight
             }
 
             app.UseHttpsRedirection();
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint(url: "/swagger/v1/swagger.json", name: "Searchfight v1");
+            });
 
             app.UseRouting();
 

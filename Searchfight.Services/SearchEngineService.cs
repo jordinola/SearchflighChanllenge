@@ -45,12 +45,14 @@ namespace Searchfight.Services
 
             for (int i = 0; i < values.Count; i++)
             {
+                var searchValue = values[i].TrimStart().TrimEnd();
+
                 searchEngineValueResult = new SearchEngineResult
                 {
-                    SearchValue = values[i],
+                    SearchValue = searchValue,
                     SearchMatchResults = new List<SearchEngineMatch> {
-                        _bingApiResultService.GetSearchEngineMatch(values[i]),
-                        _googleApiResultService.GetSearchEngineMatch(values[i])
+                        _bingApiResultService.GetSearchEngineMatch(searchValue),
+                        _googleApiResultService.GetSearchEngineMatch(searchValue)
                     }
                 };
 
