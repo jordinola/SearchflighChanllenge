@@ -28,11 +28,10 @@ namespace Searchfight.Services.SearchEnginesApiClients
             var response = Execute<BingApiResponse>(request);
             var result = new BingApiResponse();
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
-            {
                 result = response.Data;
+            else
                 _logger.LogRequestError(request, response);
-            }
-                
+
             return result;
         }
     }

@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using RestSharp;
+using Searchfight.IServices.Logger;
 using Searchfight.IServices.SearchEnginesApiClients;
 using Searchfight.Models.EnginesApiResponses;
 
@@ -8,10 +9,12 @@ namespace Searchfight.Services.SearchEnginesApiClients
     public class GoogleSearchEngineClient : RestClient, IGoogleSearchEngineClient
     {
         private readonly IConfiguration _configuration;
+        private readonly IServiceLogger _logger;
 
-        public GoogleSearchEngineClient(IConfiguration configuration)
+        public GoogleSearchEngineClient(IConfiguration configuration, IServiceLogger logger)
         {
             _configuration = configuration;
+            _logger = logger;
         }
 
         public GoogleApiResponse Search(string searchValue)
@@ -25,6 +28,8 @@ namespace Searchfight.Services.SearchEnginesApiClients
             var result = new GoogleApiResponse();
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
                 result = response.Data;
+            else
+                _logger.LogRequestError(request, response);
 
             return result;
         }

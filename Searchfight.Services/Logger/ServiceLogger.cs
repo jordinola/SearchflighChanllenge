@@ -22,7 +22,7 @@ namespace Searchfight.Services.Logger
             string parameters = string.Join(", ", request.Parameters.Select(x => x.Name.ToString() + "=" + ((x.Value == null) ? "NULL" : x.Value)).ToArray());
 
             //Set up the information message with the URL, the status code, and the parameters.
-            string info = "Request to " + url + request.Resource + " failed with status code " + response.StatusCode + ", parameters: "
+            string info = "Request to " + request.Resource + " failed with status code " + response.StatusCode + ", parameters: "
                 + parameters + ", and content: " + response.Content;
 
             //Acquire the actual exception
