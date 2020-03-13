@@ -3,21 +3,18 @@ using NUnit.Framework;
 using Searchfight.Models;
 using Searchfight.Services.SearchEngineApis;
 using Searchfight.Services.Tests.ServiceMockBuilders;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Searchfight.Services.Tests.SearchEngineApisTests
 {
     public class GoogleApiResultServiceTest
     {
         private GoogleApiResultService _service;
-        private SearchEngineApiServiceMockBuilder _searchEngineApiServiceMockBuilder;
+        private GoogleSearchEngineClientMockBuilder _googleSearchEngineClientMockBuilder;
         private SearchEngineMatchMapperMockBuilder _searchEngineMatchMapperMockBuilder;
 
         public GoogleApiResultServiceTest()
         {
-            _searchEngineApiServiceMockBuilder = new SearchEngineApiServiceMockBuilder();
+            _googleSearchEngineClientMockBuilder = new GoogleSearchEngineClientMockBuilder();
             _searchEngineMatchMapperMockBuilder = new SearchEngineMatchMapperMockBuilder();
         }
 
@@ -25,14 +22,14 @@ namespace Searchfight.Services.Tests.SearchEngineApisTests
         public void Setup()
         {
             _service = new GoogleApiResultService(
-                _searchEngineApiServiceMockBuilder.Build(),
+                _googleSearchEngineClientMockBuilder.Build(),
                 _searchEngineMatchMapperMockBuilder.Build());
         }
 
         [Test]
         public void BingApiResultService_ValidValue_ReturnsGoogleSearchEngineMatch()
         {
-            _searchEngineApiServiceMockBuilder.WithGetGoogleResult();
+            _googleSearchEngineClientMockBuilder.WithSearch();
             _searchEngineMatchMapperMockBuilder.WithMapGoogleSearchEngineRespone();
 
             var result = _service.GetSearchEngineMatch("query");

@@ -1,5 +1,5 @@
-﻿using Searchfight.IServices;
-using Searchfight.IServices.SearchEngineApis;
+﻿using Searchfight.IServices.SearchEngineApis;
+using Searchfight.IServices.SearchEnginesApiClients;
 using Searchfight.IServices.SearchEnginesMappers;
 using Searchfight.Models;
 
@@ -7,20 +7,20 @@ namespace Searchfight.Services.SearchEngineApis
 {
     public class BingApiResultService : IBingApiResultService
     {
-        private readonly ISearchEngineApiService _searchEngineService;
+        private readonly IBingSearchEngineClient _bingSearchEngineClient;
         private readonly ISearchEngineMatchMapper _mapper;
 
         public BingApiResultService(
-            ISearchEngineApiService searchEngineService,
+            IBingSearchEngineClient bingSearchEngineClient,
             ISearchEngineMatchMapper searchEngineResultServiceMapper)
         {
-            _searchEngineService = searchEngineService;
+            _bingSearchEngineClient = bingSearchEngineClient;
             _mapper = searchEngineResultServiceMapper;
         }
 
         public SearchEngineMatch GetSearchEngineMatch(string searchValue)
         {
-            var bingSearchEngineResult = _searchEngineService.GetBingResult(searchValue);
+            var bingSearchEngineResult = _bingSearchEngineClient.Search(searchValue);
             return _mapper.MapFromBingSearchEngineResponse(bingSearchEngineResult);
         }
     }

@@ -6,10 +6,12 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Searchfight.IServices;
+using Searchfight.IServices.Logger;
 using Searchfight.IServices.SearchEngineApis;
 using Searchfight.IServices.SearchEnginesApiClients;
 using Searchfight.IServices.SearchEnginesMappers;
 using Searchfight.Services;
+using Searchfight.Services.Logger;
 using Searchfight.Services.SearchEngineApis;
 using Searchfight.Services.SearchEnginesApiClients;
 using Searchfight.Services.SearchEnginesMappers;
@@ -31,10 +33,10 @@ namespace Searchfight
             services.AddMvc();
 
             services.AddTransient<ISearchEngineService, SearchEngineService>();
-            services.AddTransient<ISearchEngineApiService, SearchEngineApiService>();
             services.AddTransient<IBingApiResultService, BingApiResultService>();
             services.AddTransient<IGoogleApiResultService, GoogleApiResultService>();
 
+            services.AddSingleton<IServiceLogger, ServiceLogger>();
             services.AddSingleton<IBingSearchEngineClient, BingSearchEngineClient>();
             services.AddSingleton<IGoogleSearchEngineClient, GoogleSearchEngineClient>();
 
@@ -48,6 +50,8 @@ namespace Searchfight
             });
 
             services.AddAutoMapper(typeof(Startup));
+
+            services.AddLogging();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

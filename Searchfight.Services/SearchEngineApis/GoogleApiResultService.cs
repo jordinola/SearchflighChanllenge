@@ -1,5 +1,5 @@
-﻿using Searchfight.IServices;
-using Searchfight.IServices.SearchEngineApis;
+﻿using Searchfight.IServices.SearchEngineApis;
+using Searchfight.IServices.SearchEnginesApiClients;
 using Searchfight.IServices.SearchEnginesMappers;
 using Searchfight.Models;
 
@@ -7,20 +7,20 @@ namespace Searchfight.Services.SearchEngineApis
 {
     public class GoogleApiResultService : IGoogleApiResultService
     {
-        private readonly ISearchEngineApiService _searchEngineService;
+        private readonly IGoogleSearchEngineClient _googleSearchEngineClient;
         private readonly ISearchEngineMatchMapper _mapper;
 
         public GoogleApiResultService(
-            ISearchEngineApiService searchEngineService,
+            IGoogleSearchEngineClient googleSearchEngineClient,
             ISearchEngineMatchMapper searchEngineResultServiceMapper)
         {
-            _searchEngineService = searchEngineService;
+            _googleSearchEngineClient = googleSearchEngineClient;
             _mapper = searchEngineResultServiceMapper;
         }
 
         public SearchEngineMatch GetSearchEngineMatch(string searchValue)
         {
-            var googleSearchEngineResult = _searchEngineService.GetGoogleResult(searchValue);
+            var googleSearchEngineResult = _googleSearchEngineClient.Search(searchValue);
             return _mapper.MapFromGoogleSearchEngineResponse(googleSearchEngineResult);
         }
     }

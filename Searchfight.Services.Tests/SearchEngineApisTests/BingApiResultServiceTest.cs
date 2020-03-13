@@ -9,12 +9,12 @@ namespace Searchfight.Services.Tests.SearchEngineApisTests
     public class BingApiResultServiceTest
     {
         private BingApiResultService _service;
-        private SearchEngineApiServiceMockBuilder _searchEngineApiServiceMockBuilder;
+        private BingSearchEngineClientMockBuilder _bingSearchEngineClientMockBuilder;
         private SearchEngineMatchMapperMockBuilder _searchEngineMatchMapperMockBuilder;
 
         public BingApiResultServiceTest()
         {
-            _searchEngineApiServiceMockBuilder = new SearchEngineApiServiceMockBuilder();
+            _bingSearchEngineClientMockBuilder = new BingSearchEngineClientMockBuilder();
             _searchEngineMatchMapperMockBuilder = new SearchEngineMatchMapperMockBuilder();
         }
 
@@ -22,14 +22,14 @@ namespace Searchfight.Services.Tests.SearchEngineApisTests
         public void Setup()
         {
             _service = new BingApiResultService(
-                _searchEngineApiServiceMockBuilder.Build(), 
+                _bingSearchEngineClientMockBuilder.Build(), 
                 _searchEngineMatchMapperMockBuilder.Build());
         }
 
         [Test]
         public void BingApiResultService_ValidValue_ReturnsBingSearchEngineMatch()
         {
-            _searchEngineApiServiceMockBuilder.WithGetBingResult();
+            _bingSearchEngineClientMockBuilder.WithSearch();
             _searchEngineMatchMapperMockBuilder.WithMapBingSearchEngineRespone();
 
             var result = _service.GetSearchEngineMatch("query");
